@@ -1,0 +1,17 @@
+.jumbotron {
+    width: 60%;
+    text-align: left;
+    margin: 1% auto auto;
+}
+
+h3 {
+    text-align: center;
+}
+
+.form-control {
+    margin: 2%;
+}
+
+.negrito {
+    font-weight: bold;
+}
