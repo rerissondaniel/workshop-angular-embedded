@@ -28,32 +28,31 @@
     <script src="lib/angular/i18n/angular-locale_pt-br.js"></script>
     <script>
         angular.module("listaTelefonica", ["ngMessages"]);
-        angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, $filter) {
+        angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, $http) {
 
             //Tudo que desejamos acessar na view deve ser definido em scope...
 
             //...Isso inclui variáveis...
 
             $scope.app = "Lista Telefonica";
-            $scope.contatos = [
-                {nome: "Joao", data: new Date(), telefone: "9996-6655"},
-                {nome: "Arthur", data: new Date(), telefone: "6545-8796"},
-                {nome: "Chico", data: new Date(), telefone: "3476-4785"},
-                {nome: "Antonio", data: new Date(), telefone: "6545-0985"}
-            ];
-
-            $scope.contatos = $filter
-
-            $scope.operadoras = [
-                {nome: "Tim", codigo: 10, categoria: "Residencial", preco: 1},
-                {nome: "Oi", codigo: 16, categoria: "Residencial", preco: 0.6},
-                {nome: "Claro", codigo: 13, categoria: "Residencial", preco: 3},
-                {nome: "Vivo", codigo: 14, categoria: "Fixo", preco: 3},
-                {nome: "Embratel", codigo: 21, categoria: "Fixo", preco: 0.5},
-                {nome: "GVT", codigo: 44, categoria: "Fixo", preco: 0.6}
-            ];
+            $scope.operadoras = [];
+            $scope.contatos = [];
 
             //...E funções.
+
+            var carregarContatos = function(){
+                $http.get("http://localhost:3412/contatos").then(function(response){
+                        $scope.contatos = response.data;
+                });
+            };
+
+            var carregarOperadoras = function(){
+                    $http.get("http://localhost:3412/operadoras").then(function(response){
+                        $scope.operadoras = response.data;
+                    }, function(response){
+                        alert("Não foi possível encontrar o serviço de operadoras");
+                    });
+            }
 
             $scope.isContatoSelecionado = function isContatoSelecionado(contatos) {
                 return contatos.some(function (contato) {
@@ -63,8 +62,10 @@
 
             $scope.adicionarContato = function adicionarContato(contato) {
                 $scope.contatos.push(angular.copy(contato));
-                delete $scope.contato;
-                $scope.contatoForm.$setPristine();
+                    $http.post("http://localhost:3412/contatos", contato).then(function(response){
+                        delete $scope.contato;
+                        $scope.contatoForm.$setPristine();
+                    });
             };
 
             $scope.apagarContatos = function apagarContatos(contatos) {
@@ -75,10 +76,15 @@
                 });
             }
 
-            $scope.ordenarPor = function (campo, ordem) {
+            $scope.direcaoDeOrdenacao = true;
+
+            $scope.ordenarPor = function (campo) {
                 $scope.criterioDeOrdenacao = campo;
                 $scope.direcaoDeOrdenacao = !$scope.direcaoDeOrdenacao;
             }
+
+            carregarContatos();
+            carregarOperadoras();
         });
 
     </script>
@@ -106,11 +112,13 @@
                 <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>
             </tr>
         </table>
+
         <form name="contatoForm">
             <input class="form-control" type="text" name="nome" ng-model="contato.nome" placeholder="Nome"
                    ng-required="true" ng-minlength="10"/>
             <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="Telefone"
                    ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
+
             <select class="form-control" ng-model="contato.operadora"
                     ng-options="operadora.nome + ' (' + (operadora.preco | currency) + ')' group by operadora.categoria for operadora in operadoras | orderBy:'+nome'">
                 <option value="">Selecione uma operadora</option>
@@ -144,6 +152,5 @@
                 ng-disabled="!isContatoSelecionado(contatos)">Excluir contato(s)
         </button>
     </div>
-{{contatos}}
 </body>
 </html>
