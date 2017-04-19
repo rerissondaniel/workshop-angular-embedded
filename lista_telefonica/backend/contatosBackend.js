@@ -37,6 +37,16 @@ app.post('/contatos', function(req, res) {
   res.json(true);
 });
 
+app.delete('/contatos', function(req, res){
+  var contAux = req.body;
+  contatos.forEach(function(contato, idx){
+    if(contato.nome === contAux.nome && contato.telefone === contAux.telefone){
+      contatos.splice(idx, 1);
+      res.json(true);
+    }
+  });
+});
+
 app.get('/operadoras', function(req, res) {
   res.json(operadoras);
 });
