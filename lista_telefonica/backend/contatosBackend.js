@@ -32,6 +32,11 @@ app.get('/contatos', function(req, res) {
   res.json(contatos);
 });
 
+app.get('/contatos/:id', function(req, res) {
+  res.json(contatos[req.params.id]);
+});
+
+
 app.post('/contatos', function(req, res) {
   contatos.push(req.body);
   res.json(true);
