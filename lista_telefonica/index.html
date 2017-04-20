@@ -6,86 +6,26 @@
     <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/app.css">
     <script src="lib/angular/angular.js"></script>
-    <script src="js/app.js"></script>
     <script src="lib/angular/angular-messages.js"></script>
     <script src="lib/angular/i18n/angular-locale_pt-br.js"></script>
-    <script src="js/controllers/listaTelefonicaCtrl.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers/contatosCtrl.js"></script>
+    <script src="js/controllers/novoContatoCtrl.js"></script>
+
     <script src="js/services/contatosApiService.js"></script>
     <script src="js/services/operadorasApiService.js"></script>
     <script src="js/services/serialGeneratorService.js"></script>
+
     <script src="js/config/serialGeneratorConfig.js"></script>
+    <script src="js/config/routeConfig.js"></script>
+    <script src="js/config/locationConfig.js"></script>
+
     <script src="js/value/configValue.js"></script>
 </head>
-<body ng-controller="listaTelefonicaCtrl">
-
-    <div class="jumbotron">
-        <div class="alert alert-danger" ng-show="erroRequisicao">
-            Erro ao efetuar requisição:
-            <div ng-bind-html="erroRequisicao"></div>
-        </div>
-        <h3>{{app}}</h3>
-        </hr>
-        <input type="text" ng-model="criterioDeBusca" placeholder="Insira o que você procura" class="form-control"/>
-        <table class="table table-striped" ng-show="contatos.length > 0">
-            <tr>
-                <th></th>
-                <th>Serial</th>
-                <th><a href="" ng-click="ordenarPor('nome')">Nome</a></th>
-                <th><a href="" ng-click="ordenarPor('telefone')">Telefone</a></th>
-                <th><a href="" ng-click="ordenarPor('operadora.nome')">Operadora</a></th>
-                <th>Data</th>
-            </tr>
-            <!--Percorrento um array que está no scope usando ngRepeat-->
-            <tr ng-class="{negrito : contato.selecionado}"
-                ng-repeat="contato in contatos | filter:{nome: criterioDeBusca} | orderBy:criterioDeOrdenacao:direcaoDeOrdenacao">
-                <td><input type="checkbox" ng-model="contato.selecionado"/></td>
-                <th>{{contato.serial}}</th>
-                <td>{{contato.nome}}</td>
-                <td>{{contato.telefone}}</td>
-                <td>{{contato.operadora.nome}}</td>
-                <td>{{contato.data | date:'dd/MM/yyyy HH:mm'}}</td>
-            </tr>
-        </table>
-
-        <form name="contatoForm">
-            <input class="form-control" type="text" name="nome" ng-model="contato.nome" placeholder="Nome"
-                   ng-required="true" ng-minlength="10"/>
-            <input class="form-control" type="text" name="telefone" ng-model="contato.telefone" placeholder="Telefone"
-                   ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
-
-            <select class="form-control" ng-model="contato.operadora"
-                    ng-options="operadora.nome + ' (' + (operadora.preco | currency) + ')' group by operadora.categoria for operadora in operadoras | orderBy:'+nome'">
-                <option value="">Selecione uma operadora</option>
-            </select>
-        </form>
-
-        <div ng-messages="contatoForm.nome.$error" ng-show="contatoForm.nome.$dirty">
-            <div ng-message="required" class="form-control alert alert-danger">
-                Por favor, preencha o nome
-            </div>
-
-            <div ng-message="minlength" class="form-control alert alert-danger">
-                O nome deve ter pelo menos 10 caracteres
-            </div>
-        </div>
-
-        <div ng-messages="contatoForm.telefone.$error" ng-show="contatoForm.telefone.$dirty">
-            <div ng-message="required" class="form-control alert alert-danger">
-                Por favor, preencha o telefone
-            </div>
-
-            <div ng-message="pattern" class="form-control alert alert-danger">
-                O telefone deve ter o formato DDDDD-DDDD
-            </div>
-        </div>
-
-        <button class="btn btn-primary btn-block form-control" ng-click="adicionarContato(contato)"
-                ng-disabled="!contato.nome || !contato.telefone">Adicionar Contato
-        </button>
-        <button class="btn btn-danger btn-block form-control" ng-click="apagarContatos(contatos)"
-                ng-disabled="!isContatoSelecionado(contatos)">Excluir contato(s)
-        </button>
-    </div>
+<body>
+<div ng-view></div>
     <div  ng-include="'view/footer.html'"></div>
 </body>
 </html>

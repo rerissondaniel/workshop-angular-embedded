@@ -8,12 +8,9 @@ h3 {
     text-align: center;
 }
 
-.table{
-    margin-left: 2%;
-}
-
 .form-control {
-    margin: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .negrito {
