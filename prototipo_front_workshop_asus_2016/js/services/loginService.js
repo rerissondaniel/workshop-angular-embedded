@@ -1,4 +1,4 @@
-angular.module("cadastroCapacitacao").factory("loginApiService", function($http){
+angular.module("cadastroCapacitacao").factory("LoginApi", function($http){
 	var _login = function(credenciais){
 
 	}
