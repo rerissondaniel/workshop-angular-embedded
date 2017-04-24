@@ -1,0 +1,26 @@
+.centered{
+	margin: auto auto;
+}
+
+.usuarios{
+	width: 65%;
+	margin-top: 5%;
+}
+
+.login{
+	width: 23%;
+	margin-top: 15%;
+}
+
+input[type="email"]{
+	text-transform: lowercase;
+}
+
+.alert{
+	margin-top: 5%;
+	word-wrap: break-word;
+}
+
+.login .form-control{
+	margin-top: 5%;
+}

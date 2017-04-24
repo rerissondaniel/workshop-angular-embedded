@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="cadastroCapacitacao">
+<head>
+	<title>Cadastro Capacitação</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" text/css" href="css/app.css"/>
+</head>
+<body>
+	<div ng-view></div>
+	<div class="footer" ng-include="'view/footer.html'"></div>
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-messages.js"></script>
+
+	<script src="js/app.js"></script>
+
+	<script src="js/config/locationConfig.js"></script>
+	<script src="js/config/routesConfig.js"></script>
+
+	<script src="js/value/configValue.js"></script>
+
+	<script src="js/controllers/LoginCtrl.js"></script>	
+	<script src="js/controllers/ListarUsuariosCtrl.js"></script>	
+	<script src="js/controllers/NovoUsuarioCtrl.js"></script>
+</body>
+</html>
