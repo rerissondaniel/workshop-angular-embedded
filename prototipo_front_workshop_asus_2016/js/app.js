@@ -1,1 +1,1 @@
-angular.module("cadastroCapacitacao", ["ngRoute", "ngMessages"]);
+angular.module("cadastroCapacitacao", ["ngRoute", "ngMessages", "ngStorage"]);

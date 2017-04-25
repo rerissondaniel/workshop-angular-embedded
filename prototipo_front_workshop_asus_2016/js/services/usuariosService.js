@@ -1,5 +1,5 @@
 angular.module("cadastroCapacitacao").service("UsuariosApi", function($http, config){
-
+	var self = this;
 	var _usuarios = [{
 			nome : "Rerisson Daniel Costa Silva Matos",
 			dataNascimento : "25/12/1996",
@@ -29,24 +29,24 @@ angular.module("cadastroCapacitacao").service("UsuariosApi", function($http, con
 			role : "aluno"
 		}];
 
-	this.getById = function(id){
-		return _usuarios.find(function(usuario){
+	self.getById = function(id){
+		return self._usuarios.find(function(usuario){
 			return usuario.id == id;
 		});
 	}
 
-	this.getUsuarios = function(){
-		return _usuarios;
+	self.getUsuarios = function(){
+		return self._usuarios;
 	}
 
-	this.remover = function(id){
-		var usuario = _usuarios.find(function(usuario){
+	self.remover = function(id){
+		var usuario = self._usuarios.find(function(usuario){
 			return usuario.id == id;
 		});
 
-		var idx = _usuarios.indexOf(usuario);
+		var idx = self._usuarios.indexOf(usuario);
 		if(idx > -1){
-			_usuarios.splice(idx, 1);
+			self._usuarios.splice(idx, 1);
 		}
 	}
 });

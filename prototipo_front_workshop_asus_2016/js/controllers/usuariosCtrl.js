@@ -3,6 +3,6 @@ angular.module("cadastroCapacitacao").controller("UsuariosCtrl", function(Usuari
 	self.usuarios = UsuariosApi.getUsuarios();
 
 	self.remover = function(usuario){
-		UsuariosApi.removeUsuario(usuario.id);
+		UsuariosApi.remover(usuario.id);
 	}
 });
