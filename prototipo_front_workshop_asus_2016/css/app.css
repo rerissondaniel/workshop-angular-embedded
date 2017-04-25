@@ -1,5 +1,24 @@
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
 .centered{
 	margin: auto auto;
+}
+
+.usuario{
+	width: 40%;
+}
+
+.nao-encontrado{
+	margin-top: 20%;
+}
+
+.usuario .form-control{
+	margin-bottom: 2%;
 }
 
 .usuarios{

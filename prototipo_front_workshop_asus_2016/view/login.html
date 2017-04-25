@@ -4,14 +4,14 @@
 		<h3 class="text-center">Capacitação Embedded</h3>
 	</div>
 
-	<form name="login.loginForm">
-		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="login.credenciais.email">
-		<input type="password" name="senha" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="login.credenciais.senha">
+	<form name="loginCtrl.loginForm">
+		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credenciais.email">
+		<input type="password" name="senha" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="loginCtrl.credenciais.senha">
 
-		<button class="btn btn-primary btn-block form-control" ng-disabled="!login.loginForm.$valid" ng-click="logar(login.credenciais)"> Entrar</button>
+		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.logar(loginCtrl.credenciais)"> Entrar</button>
 	</form>
 	
-	<div ng-messages="login.loginForm.email.$error" ng-show="login.loginForm.email.$dirty">
+	<div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
 		<div class="alert alert-danger" ng-message="required">
 			O campo email não pode ser vazio
 		</div>
@@ -20,7 +20,7 @@
 		</div>
 	</div>
 
-	<div ng-messages="login.loginForm.senha.$error" ng-show="login.loginForm.senha.$dirty">
+	<div ng-messages="loginCtrl.loginForm.senha.$error" ng-show="loginCtrl.loginForm.senha.$dirty">
 		<div class="alert alert-danger" ng-message="required">
 			A senha não pode ser vazio
 		</div>

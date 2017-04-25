@@ -1,0 +1,27 @@
+<div class="usuario jumbotron centered">
+
+	<h3 class="text-center">Usuário</h3>
+	<form name = "usuarioCtrl.usuarioForm">
+		<fieldset ng-disabled="!usuarioCtrl.modoEdicao">
+			<label for="nome">Nome</label>
+			<input type="text" class="form-control" name="nome" ng-model="usuarioCtrl.usuario.nome" >
+			<label for="nome">CPF</label>
+			<input type="text" class="form-control" name="cpf" ng-model="usuarioCtrl.usuario.cpf" ng-pattern="/^\d{3}\.\d{3}\.\d{3}-\d{2}/">
+			<label for="nome">Data de Nascimento</label>
+			<input type="text" class="form-control" name="dataNascimento" ng-model="usuarioCtrl.usuario.dataNascimento">
+			<label for="nome">Email</label>
+			<input type="text" class="form-control" name="email" ng-model="usuarioCtrl.usuario.email">
+			<label for="nome">Telefone</label>
+			<input type="text" class="form-control" name="telefone" ng-model="usuarioCtrl.usuario.telefone">
+			<label for="nome">Endereco</label>
+			<input type="text" class="form-control" name="endereco" ng-model="usuarioCtrl.usuario.endereco">
+
+			<div ng-if="usuarioCtrl.usuario.role == 'aluno'">
+				<label for="nome" >Coach</label>
+				<input type="text" class="form-control" name="coach" ng-model="usuarioCtrl.usuario.coach">
+			</div>
+		</fieldset>
+	</form>
+	<button class="btn btn-block btn-primary form-control" ng-click="usuarioCtrl.setModoEdicao(true)" ng-show="!usuarioCtrl.modoEdicao">Editar</button>
+	<button class="btn btn-block btn-success form-control" ng-click="usuarioCtrl.salvar(usuarioCtrl.usuario)" ng-show="usuarioCtrl.modoEdicao">Salvar</button>
+</div>

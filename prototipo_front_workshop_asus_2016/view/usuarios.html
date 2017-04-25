@@ -9,16 +9,14 @@
 			<th></th>
 		</thead>
 		<tbody>
-			<tr ng-repeat="usuario in usuarios">
-				<td><a href="#">{{usuario.nome}}</a></td>
+			<tr ng-repeat="usuario in usuariosCtrl.usuarios">
+				<td><a ng-href="#usuario/{{usuario.id}}">{{usuario.nome}}</a></td>
 				<td>{{usuario.idade}}</td>
 				<td>{{usuario.email}}</td>
 				<td>{{usuario.role}}</td>
 				<td>{{usuario.coach}}</td>
-				<td><button ng-click="listaUsuarios.removerUsuario(usuario)" class="btn btn-danger btn-block">Remover usuario</button></td>
+				<td><button ng-click="usuariosCtrl.remover(usuario)" class="btn btn-danger btn-block">Remover usuario</button></td>
 			</tr>
 		</tbody>
 	</table>
-
-	<a href="#/adicionar-usuario" class="btn btn-primary btn-block">Adicionar Usuário</a>
 </div>
