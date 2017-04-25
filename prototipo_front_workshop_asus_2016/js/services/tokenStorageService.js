@@ -8,7 +8,7 @@ angular.module("cadastroCapacitacao").service("TokenStorageService", function($l
 		$localStorage.token = token;
 	}
 
-	this.removeToken(){
+	this.removeToken = function(){
 		delete $localStorage.token;
 		$q.when();
 	}

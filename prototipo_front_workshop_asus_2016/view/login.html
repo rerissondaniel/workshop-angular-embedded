@@ -8,7 +8,7 @@
 		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credenciais.email">
 		<input type="password" name="senha" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="loginCtrl.credenciais.senha">
 
-		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.logar(loginCtrl.credenciais)"> Entrar</button>
+		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credenciais)"> Entrar</button>
 	</form>
 	
 	<div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">

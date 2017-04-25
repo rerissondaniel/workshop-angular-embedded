@@ -1,9 +1,9 @@
-angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope){
+angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope, AuthService){
 	
 	var self = this;
 
-	self.logar = function(credenciais){
-		console.log(credenciais);
+	self.login = function(credenciais){
+		AuthService.login(credenciais);
 	}
 
 });
