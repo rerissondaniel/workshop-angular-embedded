@@ -8,6 +8,6 @@ angular.module("cadastroCapacitacao").controller("UsuarioCtrl", function($scope,
 	}
 
 	self.salvar = function(usuario){
-		UsuariosApi.remo
+		
 	}
 });

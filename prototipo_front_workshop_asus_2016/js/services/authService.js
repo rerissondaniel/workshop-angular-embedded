@@ -1,10 +1,11 @@
-angular.module("cadastroCapacitacao").service("AuthService", function($http, TokenStorageService){
+angular.module("cadastroCapacitacao").service("AuthService", function($http, config, TokenStorageService){
 	var self = this;
-	self.login = function(credenciais){
-		console.log(credenciais);
+	self.login = function(credentials){
+		return $http.post(config.baseUrl + "auth", credentials);
 	}
 
-	self.logout = function(credenciais){
-		console.log(credenciais + "saiu");
+	self.logout = function(credentials){
+		//TODO
+		return $http.post(config.baseUrl + "");
 	}
 });

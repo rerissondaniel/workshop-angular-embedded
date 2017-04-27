@@ -5,13 +5,13 @@
 	</div>
 
 	<form name="loginCtrl.loginForm">
-		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credenciais.email">
-		<input type="password" name="senha" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="loginCtrl.credenciais.senha">
+		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username" ng-change="loginCtrl.deleteError()">
+		<input type="password" name="password" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="loginCtrl.credentials.password" ng-change="loginCtrl.deleteError()">
 
-		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credenciais)"> Entrar</button>
+		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credentials)"> Entrar</button>
 	</form>
 	
-	<div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
+	<div ng-messages="loginCtrl.loginForm.email.$user" ng-show="loginCtrl.loginForm.email.$dirty">
 		<div class="alert alert-danger" ng-message="required">
 			O campo email não pode ser vazio
 		</div>
@@ -20,12 +20,16 @@
 		</div>
 	</div>
 
-	<div ng-messages="loginCtrl.loginForm.senha.$error" ng-show="loginCtrl.loginForm.senha.$dirty">
+	<div ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
 		<div class="alert alert-danger" ng-message="required">
 			A senha não pode ser vazio
 		</div>
 		<div class="alert alert-danger" ng-message="minlength">
 			A senha deve ter pelo menos 8 caracteres
 		</div>
+	</div>
+
+	<div class="alert alert-danger" ng-show="loginCtrl.error">
+		<p>{{loginCtrl.error}}</p>
 	</div>
 </div>

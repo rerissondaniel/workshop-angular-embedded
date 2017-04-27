@@ -5,10 +5,10 @@ angular.module("cadastroCapacitacao").config(function($routeProvider){
 		controllerAs: "loginCtrl"
 	});
 
-	$routeProvider.when("/usuarios", {
-		templateUrl : "view/usuarios.html",
-		controller : "UsuariosCtrl",
-		controllerAs : "usuariosCtrl",
+	$routeProvider.when("/users", {
+		templateUrl : "view/users.html",
+		controller : "UsersCtrl",
+		controllerAs : "usersCtrl",
 	});
 
 	$routeProvider.when("/usuario/:idUsuario", {

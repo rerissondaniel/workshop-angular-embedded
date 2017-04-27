@@ -1,4 +1,4 @@
-angular.module("cadastroCapacitacao").controller("UsuariosCtrl", function(UsuariosApi){
+angular.module("cadastroCapacitacao").controller("UsersCtrl", function(UsuariosApi){
 	var self = this;
 	self.usuarios = UsuariosApi.getUsuarios();
 
