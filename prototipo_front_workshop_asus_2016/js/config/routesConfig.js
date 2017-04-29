@@ -1,25 +1,10 @@
-angular.module("cadastroCapacitacao").config(function($routeProvider){
-	$routeProvider.when("/", {
+angular.module("cadastroCapacitacao").config(function($stateProvider, $urlRouterProvider, $locationProvider){
+	$urlRouterProvider.otherwise("/nao-encontrado");
+
+	$stateProvider.state("home", {
+		url : "/login",
 		templateUrl : "view/login.html",
 		controller : "LoginCtrl",
-		controllerAs: "loginCtrl"
+		controllerAs : "loginCtrl"
 	});
-
-	$routeProvider.when("/users", {
-		templateUrl : "view/users.html",
-		controller : "UsersCtrl",
-		controllerAs : "usersCtrl",
-	});
-
-	$routeProvider.when("/usuario/:idUsuario", {
-		templateUrl : "view/usuario.html",
-		controller : "UsuarioCtrl",
-		controllerAs : "usuarioCtrl"
-	});
-
-	$routeProvider.when("/nao-encontrado", {
-		templateUrl : "view/nao-encontrado.html",
-	});
-
-	$routeProvider.otherwise({redirectTo: "/nao-encontrado"})
 });

@@ -2,7 +2,7 @@
 	margin: auto auto;
 }
 
-.usuario{
+.user{
 	width: 40%;
 }
 
@@ -17,6 +17,10 @@
 .usuarios{
 	width: 65%;
 	margin-top: 5%;
+}
+
+.btn-primary{
+	margin-top: 2%;
 }
 
 .login{

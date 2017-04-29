@@ -1,0 +1,24 @@
+<form name = "userForm">
+	<fieldset ng-disabled="editMode">
+		<label for="nome">Nome</label>
+		<input type="text" class="form-control" name="nome" ng-model="user.name" >
+		
+		<label for="nome">CPF</label>
+		<input type="text" class="form-control" name="cpf" ng-model="user.cpf" ng-pattern="/^\d{3}\.\d{3}\.\d{3}-\d{2}/">
+		
+		<label for="nome">Data de Nascimento</label>
+		<input type="text" class="form-control" name="dataNascimento" ng-model="user.dateOfBirth">
+		
+		<label for="nome">Email</label>
+		<input type="text" class="form-control" name="email" ng-model="user.email">
+		
+		<label for="nome">Telefone</label>
+		<input type="text" class="form-control" name="telefone" ng-model="user.phone">
+		
+		<label for="nome">Endereco</label>
+		<input type="text" class="form-control" name="endereco" ng-model="user.address">
+		
+		<label for="nome" >Coach</label>
+		<input type="text" class="form-control" name="coach" ng-model="usuarioCtrl.usuario.coach">
+	</fieldset>
+</form>

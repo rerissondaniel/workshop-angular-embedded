@@ -7,10 +7,10 @@
 	<link rel="stylesheet" type="text/css" text/css" href="css/app.css"/>
 </head>
 <body>
-	<div ng-view></div>
+	<div ui-view></div>
 	<div ng-include="'view/footer.html'"></div>
 	<script src="lib/angular/angular.js"></script>
-	<script src="lib/angular/angular-route.js"></script>
+	<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="lib/angular/angular-messages.js"></script>
 	<script src="lib/angular/ngstorage/ngStorage.js"></script>
 
@@ -19,15 +19,19 @@
 	<script src="js/config/locationConfig.js"></script>
 	<script src="js/config/routesConfig.js"></script>
 
-	<script src="js/value/configValue.js"></script>
+	<script src="js/values/configValue.js"></script>
 
 	<script src="js/controllers/loginCtrl.js"></script>
 	<script src="js/controllers/usersCtrl.js"></script>
-	<script src="js/controllers/novoUsuarioCtrl.js"></script>
-	<script src="js/controllers/usuarioCtrl.js"></script>
+	<script src="js/controllers/userCtrl.js"></script>
 
-	<script src="js/services/usuariosService.js"></script>
-	<script src="js/services/authService.js"></script>
-	<script src="js/services/tokenStorageService.js"></script>
+	<script src="js/services/usersService.js"></script>
+	<script src="js/services/loginApiService.js"></script>
+
+	<script src="js/directives/userFormDirective.js"></script>
+	<script src="js/directives/uiAlertDirective.js"></script>
+
+
+	<script src="js/authInterceptor.js"></script>
 </body>
 </html>

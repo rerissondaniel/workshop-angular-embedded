@@ -10,7 +10,7 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="usuario in usersCtrl.usuarios">
-				<td><a ng-href="#usuario/{{usuario.id}}">{{usuario.nome}}</a></td>
+				<td><a ui-sref="#usuario/{{usuario.id}}">{{usuario.nome}}</a></td>
 				<td>{{usuario.idade}}</td>
 				<td>{{usuario.email}}</td>
 				<td>{{usuario.role}}</td>

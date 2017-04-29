@@ -1,10 +1,10 @@
-angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope, $location, AuthService, TokenStorageService){
+angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope, $location, LoginApiService){
 	
 	var self = this;
 
 	function loginSuccess(response){
-		$location.path("/users");
-		TokenStorageService.setToken(response.data.token);
+		$location.path("/usuarios");
+		//TODO adicionar o usuário à sessão.
 		self.deleteError();
 	}
 
@@ -12,8 +12,12 @@ angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope, $
 		self.error = response.data.message;
 	}
 
+	self.logout = function(){
+		//TODO remover o usuario da sessão.
+	}
+
 	self.login = function(credenciais){
-		AuthService.login(credenciais).then(loginSuccess, error);
+		LoginApiService.login(credenciais).then(loginSuccess, error);
 	}
 
 	self.deleteError = function(){

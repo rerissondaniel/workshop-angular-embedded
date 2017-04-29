@@ -11,25 +11,27 @@
 		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credentials)"> Entrar</button>
 	</form>
 	
-	<div ng-messages="loginCtrl.loginForm.email.$user" ng-show="loginCtrl.loginForm.email.$dirty">
-		<div class="alert alert-danger" ng-message="required">
-			O campo email não pode ser vazio
+	<a href="" ng-click="loginCtrl.logout()">logout</a>
+	<div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
+		<div ng-message="required">
+			<ui-alert>O campo email não pode ser vazio</ui-alert>
 		</div>
-		<div class="alert alert-danger" ng-message="pattern">
-			O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br
+		<div ng-message="pattern">
+			<ui-alert>O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br</ui-alert>
 		</div>
 	</div>
 
 	<div ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
-		<div class="alert alert-danger" ng-message="required">
-			A senha não pode ser vazio
+		<div ng-message="required">
+			<ui-alert>A senha não pode ser vazio</ui-alert>
 		</div>
-		<div class="alert alert-danger" ng-message="minlength">
-			A senha deve ter pelo menos 8 caracteres
+		<div ng-message="minlength">
+			<ui-alert>A senha deve ter pelo menos 8 caracteres</ui-alert>
 		</div>
 	</div>
 
-	<div class="alert alert-danger" ng-show="loginCtrl.error">
-		<p>{{loginCtrl.error}}</p>
+	<div ng-show="loginCtrl.error">
+		<ui-alert>{{loginCtrl.error}}</ui-alert>
 	</div>
+
 </div>
