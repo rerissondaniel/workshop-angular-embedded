@@ -1,27 +1,23 @@
-angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope, $location, LoginApiService){
+angular.module("cadastroCapacitacao").controller("LoginCtrl", function($scope, $location, AuthService){
 	
 	var self = this;
 
 	function loginSuccess(response){
-		$location.path("/usuarios");
-		//TODO adicionar o usuário à sessão.
-		self.deleteError();
-	}
-
-	function error(response){
-		self.error = response.data.message;
+		$scope.setCurrentUser(response.data.user);
+		if($scope.currentUser.role == $scope.userRoles.coach){
+			$location.path("/alunos");
+		}else{
+			$location.path("/coaches");
+		}
+		$scope.deleteError();
 	}
 
 	self.logout = function(){
-		//TODO remover o usuario da sessão.
+		AuthService.logout();
 	}
 
 	self.login = function(credenciais){
-		LoginApiService.login(credenciais).then(loginSuccess, error);
-	}
-
-	self.deleteError = function(){
-		delete self.error;
+		AuthService.login(credenciais).then(loginSuccess, $scope.requestError);
 	}
 
 });

@@ -1,4 +1,5 @@
 <div class="jumbotron centered usuarios">
+	{{userCtrl.users}}
 	<table class="table table-striped">
 		<thead>
 			<th>Nome</th>
@@ -9,14 +10,18 @@
 			<th></th>
 		</thead>
 		<tbody>
-			<tr ng-repeat="usuario in usersCtrl.usuarios">
-				<td><a ui-sref="#usuario/{{usuario.id}}">{{usuario.nome}}</a></td>
-				<td>{{usuario.idade}}</td>
-				<td>{{usuario.email}}</td>
-				<td>{{usuario.role}}</td>
-				<td>{{usuario.coach}}</td>
-				<td><button ng-click="usuariosCtrl.remover(usuario)" class="btn btn-danger btn-block">Remover usuario</button></td>
+			<tr ng-repeat="user in usersCtrl.users">
+				<td><a href="user/{{user.id}}">{{user.name}}</a></td>
+				<td>{{getAge(user.dateOfBirth)}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.role}}</td>
+				<td>{{user.coach}}</td>
+				<td ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"><button ng-click="usuariosCtrl.remover(usuario)" class="btn btn-danger btn-block">Remover usuario</button></td>
 			</tr>
 		</tbody>
 	</table>
+
+	<div ng-show="error">
+		<ui-alert>{{error}}</ui-alert>
+	</div>
 </div>

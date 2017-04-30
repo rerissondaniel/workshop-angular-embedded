@@ -8,10 +8,9 @@
 		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username" ng-change="loginCtrl.deleteError()">
 		<input type="password" name="password" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="loginCtrl.credentials.password" ng-change="loginCtrl.deleteError()">
 
-		<button class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credentials)"> Entrar</button>
+		<button type="submit" class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credentials)"> Entrar</button>
 	</form>
 	
-	<a href="" ng-click="loginCtrl.logout()">logout</a>
 	<div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
 		<div ng-message="required">
 			<ui-alert>O campo email não pode ser vazio</ui-alert>
@@ -30,8 +29,7 @@
 		</div>
 	</div>
 
-	<div ng-show="loginCtrl.error">
-		<ui-alert>{{loginCtrl.error}}</ui-alert>
+	<div ng-show="error">
+		<ui-alert>{{error}}</ui-alert>
 	</div>
-
 </div>

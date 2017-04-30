@@ -1,24 +1,21 @@
 angular.module("cadastroCapacitacao").factory("AuthInterceptor").config(function($httpProvider){
-	$httpProvider.interceptors.push(function ($location, $q){
+	var authInterceptor = function ($location, $q, SessionService){
 		return {
 			request : function(config){
 				config.headers = config.headers || {};
-
-				// if(TokenStorageService.getToken()){
-				// 	config.headers["Authorization"] = TokenStorageService.getToken();
-				// }
+				if(SessionService.id){
+					config.headers["Authorization"] = SessionService.id;
+				}
 
 				return config;
 			},
 
 			responseError : function(response){
-				if(response.status === 401 || response.status === 403){
-					//TODO ver uma forma de adicionar o error à response.;
-				}
-
 				return $q.reject(response);
 			}
 		}
-	});
+	}
+
+	$httpProvider.interceptors.push(authInterceptor);
 });
 
