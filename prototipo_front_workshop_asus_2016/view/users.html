@@ -1,29 +1,32 @@
 <div class="jumbotron centered usuarios">
-	{{userCtrl.users}}
-	<table class="table table-striped">
-		<thead>
-			<th>Nome</th>
-			<th>Idade</th>
-			<th>Email</th>
-			<th>Role</th>
-			<th>Coach</th>
-			<th></th>
-		</thead>
-		<tbody>
-			<tr ng-repeat="user in usersCtrl.users">
-				<td><a href="user/{{user.id}}">{{user.name}}</a></td>
-				<td>{{getAge(user.dateOfBirth)}}</td>
-				<td>{{user.email}}</td>
-				<td>{{user.role}}</td>
-				<td>{{user.coach}}</td>
-				<td ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"><button ng-click="usersCtrl.removeStudent(user)" class="btn btn-danger btn-block">Remover usuario</button></td>
-			</tr>
-		</tbody>
-	</table>
+    <table class="table table-striped">
+        <thead>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Coach</th>
+        <th></th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in usersCtrl.users">
+            <td><a href="#/usuario/{{user.id}}">{{user.name}}</a></td>
+            <td>{{usersCtrl.getAge(user.dateOfBirth)}}</td>
+            <td>{{user.email}}</td>
+            <td class="text-capitalize">{{user.userType}}</td>
+            <td>{{user.coach}}</td>
+            <td ng-if="currentUser.role == userRoles.coach">
+                <button ng-click="usersCtrl.removeStudent(user)" class="btn btn-danger btn-block">Remover usuario
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-	<a class="btn btn-primary btn-block" ui-sref= "add-user" ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"> Adicionar Graduando</a>
+    <a class="btn btn-primary btn-block" ui-sref="add-user"
+       ng-if="currentUser.role == userRoles.coach"> Adicionar Graduando</a>
 
-	<div ng-show="error">
-		<ui-alert>{{error}}</ui-alert>
-	</div>
+    <div ng-show="error">
+        <ui-alert>{{error}}</ui-alert>
+    </div>
 </div>

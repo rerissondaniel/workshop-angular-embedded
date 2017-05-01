@@ -1,35 +1,40 @@
 <div class="jumbotron login centered">
 
-	<div>
-		<h3 class="text-center">Capacitação Embedded</h3>
-	</div>
+    <div>
+        <h3 class="text-center">Capacitação Embedded</h3>
+    </div>
 
-	<form name="loginCtrl.loginForm">
-		<input type="email" class="form-control" placeholder="Email" name="email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username" ng-change="loginCtrl.deleteError()">
-		<input type="password" name="password" class="form-control" placeholder="Senha" ng-required="true" ng-minlength="8" ng-model="loginCtrl.credentials.password" ng-change="loginCtrl.deleteError()">
+    <form name="loginCtrl.loginForm">
+        <input type="email" class="form-control" placeholder="Email" name="email" ng-required="true"
+               ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username"
+               ng-change="loginCtrl.deleteError()">
+        <input type="password" name="password" class="form-control" placeholder="Senha" ng-required="true"
+               ng-minlength="8" ng-model="loginCtrl.credentials.password" ng-change="loginCtrl.deleteError()">
 
-		<button type="submit" class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid" ng-click="loginCtrl.login(loginCtrl.credentials)"> Entrar</button>
-	</form>
-	
-	<div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
-		<div ng-message="required">
-			<ui-alert>O campo email não pode ser vazio</ui-alert>
-		</div>
-		<div ng-message="pattern">
-			<ui-alert>O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br</ui-alert>
-		</div>
-	</div>
+        <button type="submit" class="btn btn-primary btn-block form-control" ng-disabled="!loginCtrl.loginForm.$valid"
+                ng-click="loginCtrl.login(loginCtrl.credentials)"> Entrar
+        </button>
+    </form>
 
-	<div ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
-		<div ng-message="required">
-			<ui-alert>A senha não pode ser vazio</ui-alert>
-		</div>
-		<div ng-message="minlength">
-			<ui-alert>A senha deve ter pelo menos 8 caracteres</ui-alert>
-		</div>
-	</div>
+    <div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
+        <div ng-message="required">
+            <ui-alert>O campo email não pode ser vazio</ui-alert>
+        </div>
+        <div ng-message="pattern">
+            <ui-alert>O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br</ui-alert>
+        </div>
+    </div>
 
-	<div ng-show="error">
-		<ui-alert>{{error}}</ui-alert>
-	</div>
+    <div ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
+        <div ng-message="required">
+            <ui-alert>A senha não pode ser vazio</ui-alert>
+        </div>
+        <div ng-message="minlength">
+            <ui-alert>A senha deve ter pelo menos 8 caracteres</ui-alert>
+        </div>
+    </div>
+
+    <div ng-show="error">
+        <ui-alert>{{error}}</ui-alert>
+    </div>
 </div>
