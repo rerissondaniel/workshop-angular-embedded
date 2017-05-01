@@ -21,7 +21,7 @@
 		</tbody>
 	</table>
 
-	<a class="btn btn-primary btn-block" ui-sref= "add-user" ng-click="usersCtrl.removeStudent(user)" ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"> Adicionar Graduando</a>
+	<a class="btn btn-primary btn-block" ui-sref= "add-user" ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"> Adicionar Graduando</a>
 
 	<div ng-show="error">
 		<ui-alert>{{error}}</ui-alert>
