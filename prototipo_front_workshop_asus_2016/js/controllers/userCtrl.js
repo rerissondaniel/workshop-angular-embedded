@@ -8,7 +8,7 @@ angular.module("cadastroCapacitacao").controller("UserCtrl", function($scope, $r
 		self.editMode = modoEdicao;
 	}
 
-	self.salvar = function(user){
+	self.addUser = function(user){
 		
 	}
 });

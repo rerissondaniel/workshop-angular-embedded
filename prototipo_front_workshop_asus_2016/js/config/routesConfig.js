@@ -13,7 +13,10 @@ angular.module("cadastroCapacitacao").config(function($stateProvider, $urlRouter
 		url : "/alunos",
 		templateUrl : "view/users.html",
 		controller : "StudentsCtrl",
-		controllerAs : "usersCtrl"
+		controllerAs : "usersCtrl",
+		data : {
+			authorizedRoles : [USER_ROLES.coach]
+		}
 	});
 
 	$stateProvider.state("not-found", {
@@ -41,7 +44,6 @@ angular.module("cadastroCapacitacao").config(function($stateProvider, $urlRouter
 		if(next.data){
 			var authorizedRoles = next.data.authorizedRoles;
 			if(!AuthService.isAuthorized(authorizedRoles)){
-				console.log(next.name);
 				$location.path("/nao-autorizado").replace();
 			}
 		}

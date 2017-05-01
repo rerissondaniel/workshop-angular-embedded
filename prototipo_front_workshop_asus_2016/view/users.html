@@ -16,10 +16,12 @@
 				<td>{{user.email}}</td>
 				<td>{{user.role}}</td>
 				<td>{{user.coach}}</td>
-				<td ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"><button ng-click="usuariosCtrl.remover(usuario)" class="btn btn-danger btn-block">Remover usuario</button></td>
+				<td ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"><button ng-click="usersCtrl.removeStudent(user)" class="btn btn-danger btn-block">Remover usuario</button></td>
 			</tr>
 		</tbody>
 	</table>
+
+	<a class="btn btn-primary btn-block" ui-sref= "add-user" ng-click="usersCtrl.removeStudent(user)" ng-if="usersCtrl.currentUser.role == usersCtrl.userRoles.coach"> Adicionar Graduando</a>
 
 	<div ng-show="error">
 		<ui-alert>{{error}}</ui-alert>
