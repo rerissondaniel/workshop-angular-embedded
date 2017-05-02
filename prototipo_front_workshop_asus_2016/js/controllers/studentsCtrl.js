@@ -3,11 +3,10 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
 
     self.getAge = function () {
         return "";
-    }
+    };
 
     function successGetUsers(response) {
         self.users = response.data;
-        console.log(self.users);
     }
 
     function sucessRemoveStudent(response) {

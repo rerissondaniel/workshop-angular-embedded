@@ -1,48 +1,68 @@
-<form name = "userForm">
-	<fieldset ng-disabled="editMode">
-		<label for="name">Nome</label>
-		<input type="text" class="form-control" name="name" ng-model="user.name" ng-required="true">
-		
-		<label for="cpf">CPF</label>
-		<input type="text" class="form-control" name="cpf" ng-model="user.cpf" ng-pattern="/^\d{3}\.\d{3}\.\d{3}-\d{2}/" ng-required="true">
-		
-		<label for="dateOfBirth">Data de Nascimento</label>
-		<input type="text" class="form-control" name="dateOfBirth" ng-model="user.dateOfBirth" ng-required="true" ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/">
-		
-		<label for="email">Email</label>
-		<input type="text" class="form-control" name="email" ng-model="user.email" ng-required="true" ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/">
-		
-		<label for="name">Telefone</label>
-		<input type="text" class="form-control" name="phone" ng-model="user.phone" ng-pattern="/^\(\d{2}\)\d{4,5}-\d{4}$/">
-		
-		<label for="address">Endereco</label>
-		<input type="text" class="form-control" name="address" ng-model="user.address">
-		
-		<label for="coach">Coach</label>
-		<input type="text" class="form-control" name="coach" ng-model="usuarioCtrl.usuario.coach">
-	</fieldset>
+<form name="userForm">
+    <fieldset ng-disabled="editMode">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" name="name" ng-model="user.name" ng-required="true">
 
-	<div ng-messages="userForm.name.$error" ng-show="userForm.name.$dirty">
-		<div ng-message="required"><ui-alert>O campo nome é obrigatório</ui-alert></div>
-	</div>
+        <label for="cpf">CPF</label>
+        <input type="text" class="form-control" name="cpf" ng-model="user.cpf" ng-pattern="/^\d{3}\.\d{3}\.\d{3}-\d{2}/"
+               ng-required="true">
 
-	<div ng-messages="userForm.cpf.$error" ng-show="userForm.cpf.$dirty">
-		<div ng-message="required"><ui-alert>O campo CPF é obrigatório</ui-alert></div>
-		<div ng-message="pattern"><ui-alert>O CPF deve ter o formato DDD.DDD.DDD-DD</ui-alert></div>
-	</div>
+        <label for="dateOfBirth">Data de Nascimento</label>
+        <input type="text" class="form-control" name="dateOfBirth" ng-model="user.dateOfBirth" ng-required="true"
+               ng-pattern="/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/">
 
-	<div ng-messages="userForm.phone.$error" ng-show="userForm.phone.$dirty">
-		<div ng-message="pattern"><ui-alert>O telefone deve ter o formato (DD)DDDDD-DDDD</ui-alert></div>
-	</div>
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" ng-model="user.email" ng-required="true"
+               ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/">
 
-	<div ng-messages="userForm.dateOfBirth.$error" ng-show="userForm.dateOfBirth.$dirty">
-		<div ng-message="required"><ui-alert>A data de nascimento é obrigatória</ui-alert></div>
-		<div ng-message="pattern"><ui-alert>A data deve ter o formato DD/MM/AAAA</ui-alert></div>
-	</div>
+        <label for="name">Telefone</label>
+        <input type="text" class="form-control" name="phone" ng-model="user.phone"
+               ng-pattern="/^\(\d{2}\)\d{4,5}-\d{4}$/">
 
-	<div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
-		<div ng-message="required"><ui-alert>O campo email é obrigatório</ui-alert></div>
-		<div ng-message="pattern"><ui-alert>O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br</ui-alert></div>
-	</div>
+        <label for="address">Endereco</label>
+        <input type="text" class="form-control" name="address" ng-model="user.address">
+
+        <label for="coach">Coach</label>
+        <input type="text" class="form-control" name="coach" ng-model="usuarioCtrl.usuario.coach">
+    </fieldset>
+
+    <div ng-messages="userForm.name.$error" ng-show="userForm.name.$dirty">
+        <div ng-message="required">
+            <ui-alert>O campo nome é obrigatório</ui-alert>
+        </div>
+    </div>
+
+    <div ng-messages="userForm.cpf.$error" ng-show="userForm.cpf.$dirty">
+        <div ng-message="required">
+            <ui-alert>O campo CPF é obrigatório</ui-alert>
+        </div>
+        <div ng-message="pattern">
+            <ui-alert>O CPF deve ter o formato DDD.DDD.DDD-DD</ui-alert>
+        </div>
+    </div>
+
+    <div ng-messages="userForm.phone.$error" ng-show="userForm.phone.$dirty">
+        <div ng-message="pattern">
+            <ui-alert>O telefone deve ter o formato (DD)DDDDD-DDDD</ui-alert>
+        </div>
+    </div>
+
+    <div ng-messages="userForm.dateOfBirth.$error" ng-show="userForm.dateOfBirth.$dirty">
+        <div ng-message="required">
+            <ui-alert>A data de nascimento é obrigatória</ui-alert>
+        </div>
+        <div ng-message="pattern">
+            <ui-alert>A data deve ter o formato DD/MM/AAAA</ui-alert>
+        </div>
+    </div>
+
+    <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
+        <div ng-message="required">
+            <ui-alert>O campo email é obrigatório</ui-alert>
+        </div>
+        <div ng-message="pattern">
+            <ui-alert>O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br</ui-alert>
+        </div>
+    </div>
 
 </form>

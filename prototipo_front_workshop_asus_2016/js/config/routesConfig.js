@@ -40,6 +40,8 @@ angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRoute
     $stateProvider.state("add-user", {
         url: "/adicionar-usuario",
         templateUrl: "view/coach/add-user.html",
+        controller : "UserCtrl",
+        controllerAs : "userCtrl",
         data: {
             authorizedRoles: [USER_ROLES.coach]
         }

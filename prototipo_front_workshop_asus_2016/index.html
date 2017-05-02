@@ -8,8 +8,8 @@
     /css" href="css/app.css"/>
 </head>
 <body ng-controller="AppCtrl">
-    <base href="/#">
-    <div ui-view></div>
+<base href="/#">
+<div ui-view></div>
     <div ng-include="'view/footer.html'"></div>
 
     <script src="lib/angular/angular.js"></script>
@@ -25,9 +25,10 @@
     <script src="js/values/appConfigValue.js"></script>
     <script src="js/values/constants.js"></script>
 
-    <script src="js/controllers/loginCtrl.js"></script>
     <script src="js/controllers/appCtrl.js"></script>
-    <script src="js/controllers/usersCtrl.js"></script>
+    <script src="js/controllers/userCtrl.js"></script>
+    <script src="js/controllers/studentsCtrl.js"></script>
+    <script src="js/controllers/loginCtrl.js"></script>
 
     <script src="js/services/authService.js"></script>
     <script src="js/services/sessionService.js"></script>
@@ -35,8 +36,9 @@
 
     <script src="js/directives/userFormDirective.js"></script>
     <script src="js/directives/uiAlertDirective.js"></script>
+    <script src="js/directives/requestErrorDirective.js"></script>
 
 
     <script src="js/authInterceptor.js"></script>
-</body>
+    </body>
 </html>
