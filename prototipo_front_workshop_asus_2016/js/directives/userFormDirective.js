@@ -4,10 +4,6 @@ angular.module("cadastroCapacitacao").directive("userForm", function () {
         restrict: "E",
         bindToController: true,
         controller: "UserCtrl",
-        controllerAs: "userCtrl",
-        scope: {
-            user: "@",
-            editMode: "@"
-        }
+        controllerAs: "userCtrl"
     };
 });

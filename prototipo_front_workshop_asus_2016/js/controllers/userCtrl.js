@@ -1,7 +1,12 @@
 angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $location, StudentsApiService) {
     var self = this;
-    function success($location){
+
+    function success($location) {
         $location.path("users");
+    }
+
+    function requestError(){
+        $scope.error = "Há campos obrigatórios não preenchidos e/ou inválidos.";
     }
 
     // if (null != $routeParams.idUser) {
@@ -9,11 +14,11 @@ angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $
     // }
 
     self.setEditMode = function (editMode) {
-        self.editMode = modoEdicao;
+        self.editMode = editMode;
     }
 
     self.addUser = function (user) {
-        console.log(self.editMode);
-        StudentsApiService.addStudent(user).then(success, $scope.requestError);
+        console.log(user);
+        StudentsApiService.addStudent(user).then(success, requestError);
     }
 });

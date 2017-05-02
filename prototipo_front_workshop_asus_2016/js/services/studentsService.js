@@ -8,6 +8,6 @@ angular.module("cadastroCapacitacao").service("StudentsApiService", function ($h
     }
 
     this.addStudent = function (student) {
-        return $http.post(AppConfig.baseUrl + "coach/student", student);
+        return $http.post(AppConfig.baseUrl + "coach/student", angular.toJson(student));
     }
 });
