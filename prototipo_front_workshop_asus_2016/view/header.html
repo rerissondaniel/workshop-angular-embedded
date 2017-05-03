@@ -4,15 +4,16 @@
         <h1><a href="#">Embedded Lab.</a></h1>
 
         <nav>
-            <a href="index.html#/adicionar-usuario">Adicionar Graduando</a>
+            <a  ng-if="currentUser.role == userRoles.coach " href="index.html#/adicionar-usuario">Adicionar Graduando</a>
             <a href="index.html#/usuarios">Listar Graduandos</a>
         </nav>
 
         <div class="header-user-menu">
-            <img src="css/user.png" alt="User Image"/>
+            <img src="css/image/user.png" alt="User Image"/>
 
             <ul>
                 <li><a href="index.html#/">Logout</a></li>
+                <li><a href="">Settings</a></li>
             </ul>
         </div>
 
