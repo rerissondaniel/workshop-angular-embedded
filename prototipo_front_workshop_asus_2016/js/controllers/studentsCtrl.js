@@ -17,10 +17,15 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
         delete self.tempStudent;
     }
 
-    StudentsApiService.getStudents().then(successGetUsers, $scope.requestError);
+    if ($scope.currentUser.role == $scope.userRoles.student) {
+        //Chamar a Api de Coaches aqui.
+    } else if ($scope.currentUser.role == $scope.userRoles.coach) {
+        StudentsApiService.getStudents().then(successGetUsers, $scope.requestError);
+    }
 
-    self.removeStudent = function (student) {
+
+    self.remove = function (student) {
         self.tempStudent = student;
-        StudentsApiService.removeStudent(student).then(sucessRemoveStudent, $scope.requestError);
+        StudentsApiService.remove(student).then(sucessRemoveStudent, $scope.requestError);
     }
 });

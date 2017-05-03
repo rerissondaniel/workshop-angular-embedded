@@ -7,11 +7,15 @@ angular.module("cadastroCapacitacao").service("StudentsApiService", function ($h
         return $http.get(AppConfig.baseUrl + "student/" + idUser);
     }
 
-    this.removeStudent = function (student) {
+    this.remove = function (student) {
         return $http.delete(AppConfig.baseUrl + "coach/student/" + student.id);
     }
 
-    this.addStudent = function (student) {
+    this.add = function (student) {
         return $http.post(AppConfig.baseUrl + "coach/student", angular.toJson(student));
+    }
+
+    this.update = function (student) {
+        return $http.put(AppConfig.baseUrl + "student", angular.toJson(student));
     }
 });

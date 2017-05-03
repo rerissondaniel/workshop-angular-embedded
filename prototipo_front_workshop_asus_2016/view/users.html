@@ -16,7 +16,7 @@
             <td class="text-capitalize">{{user.userType}}</td>
             <td>{{user.coach.name}}</td>
             <td ng-if="currentUser.role == userRoles.coach">
-                <button ng-click="usersCtrl.removeStudent(user)" class="btn btn-danger btn-block">Remover usuario
+                <button ng-click="usersCtrl.remove(user)" class="btn btn-danger btn-block">Remover usuario
                 </button>
             </td>
         </tr>
