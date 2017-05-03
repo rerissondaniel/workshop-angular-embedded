@@ -1,4 +1,4 @@
-angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $location, $stateParams, StudentsApiService) {
+angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $location, $stateParams, StudentsApiService, CoachesApiService) {
     var self = this;
 
     function successAddStudent(response) {
@@ -6,7 +6,7 @@ angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $
         $location.path("/usuarios");
     }
 
-    function successGetStudent(response) {
+    function successGetUser(response) {
         $scope.deleteError();
         $scope.user = response.data;
         self.setEditMode(false);
@@ -23,9 +23,9 @@ angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $
 
     if ($stateParams.idUser) {
         if ($scope.currentUser.role == $scope.userRoles.coach) {
-            StudentsApiService.getById($stateParams.idUser).then(successGetStudent);
+            StudentsApiService.getById($stateParams.idUser).then(successGetUser, $scope.requestError);
         } else {
-            // $scope.user = CoachApiService.getById($stateParams.idUser);
+            CoachesApiService.getCoach($stateParams.idUser).then(successGetUser, $scope.requestError);
         }
     }
 

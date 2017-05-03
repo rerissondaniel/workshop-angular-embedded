@@ -1,4 +1,4 @@
-angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, StudentsApiService) {
+angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, StudentsApiService, CoachesApiService) {
     var self = this;
 
     self.getAge = function () {
@@ -18,7 +18,7 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
     }
 
     if ($scope.currentUser.role == $scope.userRoles.student) {
-        //Chamar a Api de Coaches aqui.
+        CoachesApiService.getCoaches().then(successGetUsers, $scope.requestError);
     } else if ($scope.currentUser.role == $scope.userRoles.coach) {
         StudentsApiService.getStudents().then(successGetUsers, $scope.requestError);
     }
