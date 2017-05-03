@@ -1,5 +1,6 @@
 angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, StudentsApiService, CoachesApiService) {
     var self = this;
+    //$scope.currentUser = {};
 
     self.getAge = function () {
         return "";
@@ -33,4 +34,5 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
         $scope.criterioDeOrdenacao = campo;
         $scope.direcaoDeOrdenacao = !$scope.direcaoDeOrdenacao;
     }
+
 });

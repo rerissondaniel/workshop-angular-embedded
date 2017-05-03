@@ -1,5 +1,5 @@
-angular.module("cadastroCapacitacao").controller("AppCtrl", function ($scope, USER_ROLES, AuthService) {
-    $scope.currentUser = null;
+angular.module("cadastroCapacitacao").controller("AppCtrl", function ($scope, USER_ROLES, AuthService, $state) {
+    $scope.currentUser = {};
     $scope.userRoles = USER_ROLES;
     $scope.isAuthorized = AuthService.isAuthorized;
 
@@ -17,5 +17,10 @@ angular.module("cadastroCapacitacao").controller("AppCtrl", function ($scope, US
 
     $scope.deleteError = function () {
         delete $scope.error;
+    }
+
+    $scope.logout= function () {
+        $scope.currentUser.role=null;
+        $state.go('login');
     }
 });

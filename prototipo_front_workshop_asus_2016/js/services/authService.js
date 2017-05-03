@@ -29,4 +29,5 @@ angular.module("cadastroCapacitacao").service("AuthService", function ($http, Ap
         }
         return self.isAuthenticated() && authorizedRoles.indexOf(SessionService.user.role) != -1;
     }
+
 });
