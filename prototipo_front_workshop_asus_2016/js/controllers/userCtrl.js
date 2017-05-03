@@ -1,24 +1,34 @@
-angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $location, StudentsApiService) {
+angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $location, $stateParams, StudentsApiService) {
     var self = this;
 
-    function success() {
+    function successAddStudent() {
         $scope.deleteError();
         $location.path("/usuarios");
     }
 
-    self.requestError = function(error) {
+    function successGetStudent(response) {
+        $scope.deleteError();
+        $scope.user = response.data;
+        self.setEditMode(false);
+    }
+
+    self.requestError = function (error) {
         $scope.error = "Há campos obrigatórios não preenchidos e/ou inválidos.";
     }
 
-    // if (null != $routeParams.idUser) {
-    //     self.user = UsuariosApi.getById($routeParams.idUser);
-    // }
+    if ($stateParams.idUser) {
+        if ($scope.currentUser.role == $scope.userRoles.coach) {
+            StudentsApiService.getById($stateParams.idUser).then(successGetStudent);
+        } else {
+            // $scope.user = CoachApiService.getById($stateParams.idUser);
+        }
+    }
 
     self.setEditMode = function (editMode) {
-        self.editMode = editMode;
+        $scope.editMode = editMode;
     }
 
     self.addUser = function (user) {
-        StudentsApiService.addStudent(user).then(success, self.requestError);
+        StudentsApiService.addStudent(user).then(successAddStudent(), self.requestError);
     }
 });

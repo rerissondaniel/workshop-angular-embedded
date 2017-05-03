@@ -1,11 +1,11 @@
 <div class="jumbotron centered user">
 
     <h3 class="text-center">Usuário</h3>
-    <user-form user="userCtrl.user" edit-mode="false"></user-form>
+    <user-form></user-form>
     <button class="btn btn-block btn-primary form-control" ng-click="userCtrl.setEditMode(true)"
-            ng-show="!userCtrl.editMode" ng-if="userCtrl.user === userCtrl.currentUser">Editar
+            ng-show="!editMode" ng-if="userCtrl.user === userCtrl.currentUser">Editar
     </button>
     <button class="btn btn-block btn-success form-control" ng-click="userCtrl.save(userCtrl.usuario)"
-            ng-show="userCtrl.editMode">Salvar
+            ng-show="editMode">Salvar
     </button>
 </div>

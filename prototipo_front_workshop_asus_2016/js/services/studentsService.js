@@ -3,6 +3,10 @@ angular.module("cadastroCapacitacao").service("StudentsApiService", function ($h
         return $http.get(AppConfig.baseUrl + "student");
     }
 
+    this.getById = function(idUser){
+        return $http.get(AppConfig.baseUrl + "student/" + idUser);
+    }
+
     this.removeStudent = function (student) {
         return $http.delete(AppConfig.baseUrl + "coach/student/" + student.id);
     }

@@ -1,5 +1,5 @@
 <form name="userForm">
-    <fieldset ng-disabled="editMode">
+    <fieldset ng-disabled="!editMode">
         <label for="name">Nome</label>
         <input type="text" ng-minlength="2" ng-maxlength="20" class="form-control" id="name" name="name"
                ng-model="user.name" ng-required="true">
