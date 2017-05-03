@@ -1,6 +1,11 @@
 angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, StudentsApiService, CoachesApiService) {
     var self = this;
-    //$scope.currentUser = {};
+
+    if ($scope.currentUser.role == $scope.userRoles.student) {
+        CoachesApiService.getCoaches().then(successGetUsers, $scope.requestError);
+    } else if ($scope.currentUser.role == $scope.userRoles.coach) {
+        StudentsApiService.getStudents().then(successGetUsers, $scope.requestError);
+    }
 
     self.getAge = function () {
         return "";
@@ -17,13 +22,6 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
         $scope.deleteError();
         delete self.tempStudent;
     }
-
-    if ($scope.currentUser.role == $scope.userRoles.student) {
-        CoachesApiService.getCoaches().then(successGetUsers, $scope.requestError);
-    } else if ($scope.currentUser.role == $scope.userRoles.coach) {
-        StudentsApiService.getStudents().then(successGetUsers, $scope.requestError);
-    }
-
 
     self.remove = function (student) {
         self.tempStudent = student;
