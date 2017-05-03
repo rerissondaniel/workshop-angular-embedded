@@ -1,4 +1,4 @@
-<header class="header-user-dropdown">
+<header class="header-user-dropdown" ng-controller="AuthCtrl as authCtrl" ng-if="isUserAuthenticated()">
 
     <div class="header-limiter">
         <h1>Embedded Lab.</h1>
@@ -12,7 +12,7 @@
             <img src="css/image/user.png" alt="User Image"/>
 
             <ul>
-                <li><a ng-click="logout()">Logout</a></li>
+                <li><a ng-click="authCtrl.logout()">Logout</a></li>
                 <li><a href="">Settings</a></li>
             </ul>
         </div>

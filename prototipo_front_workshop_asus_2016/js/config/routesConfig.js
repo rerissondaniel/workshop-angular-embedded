@@ -5,7 +5,7 @@ angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRoute
     $stateProvider.state("login", {
         url: "/",
         templateUrl: "view/login.html",
-        controller: "LoginCtrl",
+        controller: "AuthCtrl",
         controllerAs: "loginCtrl"
     });
 

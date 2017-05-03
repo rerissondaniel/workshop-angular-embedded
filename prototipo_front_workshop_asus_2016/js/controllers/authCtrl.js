@@ -1,4 +1,4 @@
-angular.module("cadastroCapacitacao").controller("LoginCtrl", function ($scope, $location, AuthService) {
+angular.module("cadastroCapacitacao").controller("AuthCtrl", function ($scope, $location, $state, AuthService) {
 
     var self = this;
 
@@ -10,11 +10,13 @@ angular.module("cadastroCapacitacao").controller("LoginCtrl", function ($scope, 
 
     self.logout = function () {
         AuthService.logout();
+        $scope.currentUser = {};
+        $state.go('login');
     }
 
     self.login = function (credenciais) {
         AuthService.login(credenciais).then(loginSuccess, $scope.requestError);
-    }
+    };
 
     self.isAuthenticated = function () {
         AuthService.isAuthenticated();
