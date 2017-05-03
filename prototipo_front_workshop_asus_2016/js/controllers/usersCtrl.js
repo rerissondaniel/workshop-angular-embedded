@@ -28,4 +28,9 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
         self.tempStudent = student;
         StudentsApiService.remove(student).then(sucessRemoveStudent, $scope.requestError);
     }
+
+    $scope.ordenarPor = function (campo) {
+        $scope.criterioDeOrdenacao = campo;
+        $scope.direcaoDeOrdenacao = !$scope.direcaoDeOrdenacao;
+    }
 });

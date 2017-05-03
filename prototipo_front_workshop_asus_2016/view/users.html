@@ -1,15 +1,17 @@
+
 <div class="jumbotron centered usuarios">
-    <table class="table table-striped">
+    <input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você deseja buscar?">
+    <table class="table table-striped ">
         <thead>
-        <th>Nome</th>
-        <th>Idade</th>
-        <th>Email</th>
+        <th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
+        <th><a href="" ng-click="ordenarPor('dateOfBirth')">Idade</a></th>
+        <th><a href="" ng-click="ordenarPor('email')">Email</a></th>
         <th>Role</th>
         <th ng-if="currentUser.role == userRoles.coach">Coach</th>
         <th ng-if="currentUser.role == userRoles.coach"></th>
         </thead>
         <tbody>
-        <tr ng-repeat="user in usersCtrl.users">
+        <tr ng-repeat="user in usersCtrl.users | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDeOrdenacao">
             <td><a href="#/usuario/{{user.id}}">{{user.name}}</a></td>
             <td>{{user.dateOfBirth}}</td>
             <td>{{user.email}}</td>

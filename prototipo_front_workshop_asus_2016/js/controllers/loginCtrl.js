@@ -16,4 +16,7 @@ angular.module("cadastroCapacitacao").controller("LoginCtrl", function ($scope, 
         AuthService.login(credenciais).then(loginSuccess, $scope.requestError);
     }
 
+    self.isAuthenticated = function () {
+        AuthService.isAuthenticated();
+    }
 });
