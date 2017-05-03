@@ -11,10 +11,10 @@
         <tbody>
         <tr ng-repeat="user in usersCtrl.users">
             <td><a href="#/usuario/{{user.id}}">{{user.name}}</a></td>
-            <td>{{usersCtrl.getAge(user.dateOfBirth)}}</td>
+            <td>{{user.dateOfBirth}}</td>
             <td>{{user.email}}</td>
             <td class="text-capitalize">{{user.userType}}</td>
-            <td>{{user.coach}}</td>
+            <td>{{user.coach.name}}</td>
             <td ng-if="currentUser.role == userRoles.coach">
                 <button ng-click="usersCtrl.removeStudent(user)" class="btn btn-danger btn-block">Remover usuario
                 </button>

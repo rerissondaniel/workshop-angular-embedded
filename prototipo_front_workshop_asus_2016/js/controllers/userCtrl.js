@@ -1,11 +1,12 @@
 angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $location, StudentsApiService) {
     var self = this;
 
-    function success($location) {
-        $location.path("users");
+    function success() {
+        $scope.deleteError();
+        $location.path("/usuarios");
     }
 
-    function requestError(){
+    self.requestError = function(error) {
         $scope.error = "Há campos obrigatórios não preenchidos e/ou inválidos.";
     }
 
@@ -18,7 +19,6 @@ angular.module("cadastroCapacitacao").controller("UserCtrl", function ($scope, $
     }
 
     self.addUser = function (user) {
-        console.log(user);
-        StudentsApiService.addStudent(user).then(success, requestError);
+        StudentsApiService.addStudent(user).then(success, self.requestError);
     }
 });

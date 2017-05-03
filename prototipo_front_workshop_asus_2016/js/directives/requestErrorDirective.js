@@ -4,6 +4,6 @@ angular.module("cadastroCapacitacao").directive("requestError", function () {
         replace: true,
         restrict: "E",
         transclude: true,
-        scope: true
+        scope: false
     };
 });

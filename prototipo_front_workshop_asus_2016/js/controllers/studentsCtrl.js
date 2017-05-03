@@ -7,11 +7,13 @@ angular.module("cadastroCapacitacao").controller("UsersCtrl", function ($scope, 
 
     function successGetUsers(response) {
         self.users = response.data;
+        $scope.deleteError();
     }
 
     function sucessRemoveStudent(response) {
         var idx = self.users.indexOf(self.tempStudent);
         self.users.splice(idx, 1);
+        $scope.deleteError();
         delete self.tempStudent;
     }
 
