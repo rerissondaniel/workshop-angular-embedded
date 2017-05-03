@@ -14,8 +14,10 @@
 	margin-bottom: 2%;
 }
 
-.usuarios{
-	width: 65%;
+
+.users{
+
+	width: 90%;
 	margin-top: 5%;
 }
 
@@ -25,7 +27,7 @@
 
 .login{
 	width: 23%;
-	margin-top: 15%;
+	margin-top: 5%;
 }
 
 input[type="email"]{
@@ -39,4 +41,16 @@ input[type="email"]{
 
 .login .form-control{
 	margin-top: 5%;
+}
+
+my-hero {
+	display: block;
+	background-color: #2a6496;
+	padding: 50px;
+	font-size: 30px;
+}
+.jumbotron{
+	display: block;
+	background-color: #c4e3f3;
+
 }
