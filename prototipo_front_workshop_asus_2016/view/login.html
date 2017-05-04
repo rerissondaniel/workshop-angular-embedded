@@ -8,8 +8,7 @@
 
     <form name="loginCtrl.loginForm">
         <input type="email" class="form-control" placeholder="Email" name="email" ng-required="true"
-               ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username"
-               ng-change="loginCtrl.deleteError()">
+               ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username">
         <input type="password" name="password" class="form-control" placeholder="Senha" ng-required="true"
                ng-minlength="8" ng-model="loginCtrl.credentials.password" ng-change="loginCtrl.deleteError()">
 

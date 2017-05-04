@@ -1,33 +1,42 @@
-angular.module("cadastroCapacitacao").service("AuthService", function ($http, AppConfig, SessionService) {
+angular.module("cadastroCapacitacao").factory("AuthService", function ($http, AppConfig, SessionService) {
 
     var self = this;
 
-    function createSession(response) {
+    function _createSession(response) {
         SessionService.createSession(response.data);
         return response;
     }
 
-    self.getToken = function () {
+    function _getToken() {
         return SessionService.id;
     }
 
-    self.logout = function () {
+    function _logout() {
         SessionService.destroy();
     }
 
-    self.login = function (credentials) {
-        return $http.post(AppConfig.baseUrl + "auth", credentials).then(createSession);
+    function _login(credentials) {
+        return $http.post(AppConfig.baseUrl + "auth", credentials).then(_createSession);
     }
 
-    self.isAuthenticated = function () {
+    function _isAuthenticated() {
         return !!SessionService.id;
     }
 
-    self.isAuthorized = function (authorizedRoles) {
+    function _isAuthorized(authorizedRoles) {
         if (!angular.isArray(authorizedRoles)) {
             authorizedRoles = [authorizedRoles]
         }
-        return self.isAuthenticated() && authorizedRoles.indexOf(SessionService.user.role) != -1;
+        return _isAuthenticated() && authorizedRoles.indexOf(SessionService.user.role) != -1;
+    }
+
+    return {
+        createSession : _createSession,
+        getToken : _getToken,
+        logout : _logout,
+        login : _login,
+        isAuthenticated : _isAuthenticated,
+        isAuthorized : _isAuthorized()
     }
 
 });
