@@ -1,11 +1,10 @@
 <div class="jumbotron login centered">
 
-    <script>document.createElement("my-hero")</script>
-    <my-hero><img src="css/image/embedded.png"></my-hero>
-    <div>
+    <script>document.createElement("my-logo")</script>
+    <my-logo><img src="css/image/embedded.png"></my-logo>
+    <section>
         <h3 class="text-center">Capacitação Embedded</h3>
-    </div>
-
+    </section>
     <form name="loginCtrl.loginForm">
         <input type="email" class="form-control" placeholder="Email" name="email" ng-required="true"
                ng-pattern="/^[a-zA-Z]+\.[a-zA-Z]+@embedded\.ufcg\.edu\.br$/" ng-model="loginCtrl.credentials.username">
@@ -17,22 +16,22 @@
         </button>
     </form>
 
-    <div ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
+    <section ng-messages="loginCtrl.loginForm.email.$error" ng-show="loginCtrl.loginForm.email.$dirty">
         <div ng-message="required">
             <ui-alert>O campo email não pode ser vazio</ui-alert>
         </div>
         <div ng-message="pattern">
             <ui-alert>O email deve ter o formato nome.sobrenome@embedded.ufcg.edu.br</ui-alert>
         </div>
-    </div>
+    </section>
 
-    <div ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
+    <section ng-messages="loginCtrl.loginForm.password.$error" ng-show="loginCtrl.loginForm.password.$dirty">
         <div ng-message="required">
             <ui-alert>A senha não pode ser vazio</ui-alert>
-        </div>
+    </div>
         <div ng-message="minlength">
             <ui-alert>A senha deve ter pelo menos 8 caracteres</ui-alert>
         </div>
-    </div>
+    </section>
     <request-error/>
 </div>
