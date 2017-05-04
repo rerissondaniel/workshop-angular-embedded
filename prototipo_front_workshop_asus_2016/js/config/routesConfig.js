@@ -1,4 +1,4 @@
-angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRouterProvider, $locationProvider, USER_ROLES) {
+angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
 
     $urlRouterProvider.otherwise("nao-encontrado");
 
@@ -30,9 +30,9 @@ angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRoute
     });
 
     $stateProvider.state("view-user", {
-        url : "/usuario/:idUser",
-        templateUrl : "view/user.html",
-        controller : "UserCtrl",
+        url: "/usuario/:idUser",
+        templateUrl: "view/user.html",
+        controller: "UserCtrl",
         controllerAs: "userCtrl",
         authorizedRoles: USER_ROLES.all
     });
@@ -40,8 +40,8 @@ angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRoute
     $stateProvider.state("add-user", {
         url: "/adicionar-usuario",
         templateUrl: "view/coach/add-user.html",
-        controller : "UserCtrl",
-        controllerAs : "userCtrl",
+        controller: "UserCtrl",
+        controllerAs: "userCtrl",
         data: {
             authorizedRoles: [USER_ROLES.coach]
         }
@@ -54,6 +54,10 @@ angular.module("cadastroCapacitacao").config(function ($stateProvider, $urlRoute
                 var authorizedRoles = next.data.authorizedRoles;
                 if (!AuthService.isAuthorized(authorizedRoles)) {
                     $location.path("/nao-autorizado").replace();
+                }
+                console.log(next);
+                if (next.name === "login" && AuthService.isAuthenticated()) {
+                    $location.path("/login");
                 }
             }
         });

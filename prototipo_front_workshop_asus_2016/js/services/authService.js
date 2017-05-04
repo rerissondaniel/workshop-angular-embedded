@@ -1,7 +1,5 @@
 angular.module("cadastroCapacitacao").factory("AuthService", function ($http, AppConfig, SessionService) {
 
-    var self = this;
-
     function _createSession(response) {
         SessionService.createSession(response.data);
         return response;

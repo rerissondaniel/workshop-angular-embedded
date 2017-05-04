@@ -10,7 +10,6 @@ angular.module("cadastroCapacitacao").controller("AuthCtrl", function ($scope, $
 
     self.logout = function () {
         AuthService.logout();
-        $scope.currentUser = {};
         $state.go('login');
     }
 

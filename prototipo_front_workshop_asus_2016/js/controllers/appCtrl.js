@@ -1,5 +1,5 @@
-angular.module("cadastroCapacitacao").controller("AppCtrl", function ($scope, USER_ROLES, AuthService) {
-    $scope.currentUser = {};
+angular.module("cadastroCapacitacao").controller("AppCtrl", function ($scope, USER_ROLES, AuthService, SessionService) {
+    $scope.currentUser = SessionService.user;
     $scope.userRoles = USER_ROLES;
     $scope.isAuthorized = AuthService.isAuthorized;
 
