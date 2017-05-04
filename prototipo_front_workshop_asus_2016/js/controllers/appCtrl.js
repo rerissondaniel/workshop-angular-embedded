@@ -7,15 +7,23 @@ angular.module("cadastroCapacitacao").controller("AppCtrl", function ($scope, US
         $scope.currentUser = user;
     };
 
+    $scope.isCurrentUserCoach = function (user) {
+        return user.role === USER_ROLES.coach;
+    };
+
+    $scope.isCurrentUserStudent = function (user) {
+        return user.role === USER_ROLES.student;
+    };
+
     $scope.requestError = function (response) {
-        if (response.data == null) {
+        if (!response.data) {
             $scope.error = "Falha na comunicação com o servidor.";
         } else {
             $scope.error = response.data.message;
         }
     }
 
-    $scope.isUserAuthenticated = function(){
+    $scope.isUserAuthenticated = function () {
         return AuthService.isAuthenticated();
     }
 

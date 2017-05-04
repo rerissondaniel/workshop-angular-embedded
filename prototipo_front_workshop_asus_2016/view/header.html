@@ -3,9 +3,13 @@
     <div class="header-limiter">
         <h1>Embedded Lab.</h1>
 
-        <nav>
-            <a  ng-if="currentUser.role == userRoles.coach " href="index.html#/adicionar-usuario">Adicionar Graduando</a>
-            <a href="index.html#/usuarios">Listar Graduandos</a>
+        <nav ng-if="isCurrentUserCoach(currentUser)">
+            <a ui-sref="add-user">Adicionar Graduando</a>
+            <a ui-sref="users">Listar Graduandos</a>
+        </nav>
+
+        <nav ng-if="isCurrentUserStudent(currentUser)">
+            <a ui-sref="users">Listar Coaches</a>
         </nav>
 
         <div class="header-user-menu">

@@ -4,7 +4,7 @@ angular.module("cadastroCapacitacao").controller("AuthCtrl", function ($scope, $
 
     function loginSuccess(response) {
         $scope.setCurrentUser(response.data.user);
-        $location.path("/usuarios");
+        $state.go("users");
         $scope.deleteError();
     }
 
